@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.11)
+project(CppCollections)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+file(GLOB_RECURSE SOURCEFILES "*.cpp")
+foreach(_source IN LISTS SOURCEFILES)
+    get_filename_component(_basename ${_source} NAME_WE)
+    add_executable(${_basename} ${_source})
+endforeach(_source IN LISTS SOURCEFILES)
